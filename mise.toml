@@ -1,0 +1,25 @@
+[tools]
+python = "3.15.0"
+ruff = "0.17.0"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[tasks.setup]
+description = "Install runtime dependencies"
+run = "python -m pip install -r requirements.txt"
+
+[tasks.inspector]
+description = "Run Static Byte Inspector"
+run = "python -B -m scripts"
+
+[tasks.test]
+description = "Run offline regression tests"
+run = "python -B -m unittest discover -s tests -v"
+
+[tasks.check]
+description = "Check Python formatting and lint rules"
+run = [
+  "ruff format --check scripts tests",
+  "ruff check scripts tests",
+]
