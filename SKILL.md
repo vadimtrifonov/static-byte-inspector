@@ -12,8 +12,6 @@ Commands read files and print JSON to stdout.
 
 ```powershell
 mise trust mise.toml
-mise install
-mise run setup
 ```
 
 ## Sources and addresses
