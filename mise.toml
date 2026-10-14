@@ -1,13 +1,15 @@
+[settings]
+experimental = true
+
 [tools]
 python = "3.15.0"
 ruff = "0.17.0"
 
 [env]
-_.python.venv = { path = ".venv", create = true }
+_.python.venv = { path = ".venv", create = true, uv_create_args = ["--seed"] }
 
-[tasks.setup]
-description = "Install runtime dependencies"
-run = "python -m pip install -r requirements.txt"
+[deps.pip]
+auto = true
 
 [tasks.inspector]
 description = "Run Static Byte Inspector"
